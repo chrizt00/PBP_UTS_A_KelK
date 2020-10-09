@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity">
+
+    <ImageView
+        android:id="@+id/logoview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/logoview"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/name"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/logoview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toEndOf="@+id/logoview"
+        app:layout_constraintTop_toTopOf="@+id/logoview"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/logoview"
+        android:fontFamily="casual"
+        android:text="Since 2020 Created by Kelompok K"
+        android:textColor="@android:color/black"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/logoview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toEndOf="@+id/logoview"
+        app:layout_constraintTop_toTopOf="@+id/logoview"
+        app:layout_constraintVertical_bias="0.588" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        app:cardBackgroundColor="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/logoview"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <ImageView
+            android:id="@+id/social"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/facebook" />
+
+        <ImageView
+            android:id="@+id/email"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="145dp"
+            android:src="@drawable/ic_baseline_mail_outline_24" />
+
+        <ImageView
+            android:id="@+id/phone"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="260dp"
+            android:src="@drawable/ic_baseline_phone_in_talk_24" />
+
+        <ImageView
+            android:id="@+id/location"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="120dp"
+            android:src="@drawable/ic_baseline_location_on_24" />
+
+        <TextView
+            android:id="@+id/Tfacebook"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="75dp"
+            android:layout_toEndOf="@+id/logoview"
+            android:fontFamily="sans-serif-light"
+            android:text="fb.com/oraclepetstop"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Temail"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="75dp"
+            android:layout_toEndOf="@+id/logoview"
+            android:fontFamily="sans-serif-light"
+            android:text="oracle@petshop.com"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Tphone"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="75dp"
+            android:layout_toEndOf="@+id/logoview"
+            android:fontFamily="sans-serif-light"
+            android:text="+555 555 5555"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Tlocation"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="195dp"
+            android:layout_toEndOf="@+id/logoview"
+            android:fontFamily="sans-serif-light"
+            android:text="Jalan Adisucipto KM.9 Gd. Bonaventura Lt.3 Block A"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/mapfragment"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/card"
+        app:layout_constraintTop_toBottomOf="@+id/card"
+        app:layout_constraintRight_toRightOf="@+id/card"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
