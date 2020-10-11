@@ -1,14 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".MeFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="usr"
+            type="com.hendrianto.uts_petshop.entity.User"/>
+    </data>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Me Fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <!-- TODO: Update blank fragment layout -->
+        <RelativeLayout
+            android:layout_height="230dp"
+            android:layout_width="match_parent"
+            android:padding="20dp"
+            android:background="@drawable/back">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_margin="10dp"
+                android:layout_centerVertical="true"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="0dp">
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_baseline_account_circle_24"/>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cardImage"
+                android:text="@={usr.username}"
+                android:fontFamily="@font/bungee"
+                android:visibility="visible"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/takePicture"
+                android:layout_width="118dp"
+                android:layout_height="50dp"
+                android:layout_above="@+id/cardImage"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="-15dp"
+                android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
+                android:text="Update Photo"
+                android:textColor="@color/colorYellow"
+                android:textSize="8dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/userLayout"
+                android:hint="Full Name">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/userInput"
+                    android:text="@{usr.username}"
+                    android:inputType="text"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+                    android:drawablePadding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/userLayoutHide"
+                android:hint="Full Name">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/userInputHide"
+                    android:text="@={usr.username}"
+                    android:inputType="text"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+                    android:drawablePadding="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/emailLayout"
+                android:hint="Email">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="@={usr.email}"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/ic_baseline_mail_outline_24"
+                    android:drawablePadding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/emailLayoutHide"
+                android:hint="Email">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInputHide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="@={usr.email}"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/ic_baseline_mail_outline_24"
+                    android:drawablePadding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Telphone"
+                android:id="@+id/telpLayout">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/telpInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:text="@={usr.telphone}"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/ic_baseline_phone_in_talk_24"
+                    android:drawablePadding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Telphone"
+                android:id="@+id/telpLayoutHide">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/telpInputHide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={usr.telphone}"
+                    android:inputType="phone"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/ic_baseline_phone_in_talk_24"
+                android:drawablePadding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/addressLayout"
+                android:hint="Address">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addressInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:text="@={usr.address}"
+                    android:inputType="text"
+                    android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                    android:drawablePadding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/addressLayoutHide"
+                android:hint="Address">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addressInputHide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={usr.address}"
+                    android:background="@android:color/white"
+                    android:inputType="text"
+                    android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                    android:drawablePadding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="update"
+                android:fontFamily="@font/bungee"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

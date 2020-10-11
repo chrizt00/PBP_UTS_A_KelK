@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "256636785755",
+    "firebase_url": "https://uts-petshop.firebaseio.com",
+    "project_id": "uts-petshop",
+    "storage_bucket": "uts-petshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256636785755:android:7bf26858562043dfb85b7e",
+        "android_client_info": {
+          "package_name": "com.hendrianto.uts_petshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256636785755-ia0sejt35o0mt159p1otuenknj93hogn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hendrianto.uts_petshop",
+            "certificate_hash": "5e8f6025cbec07933455965c1cddfc71a8220fb7"
+          }
+        },
+        {
+          "client_id": "256636785755-tskj8c31lic57a6j1q3kgju88m7i2tmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlXhmV5cJTj12nZtiJnGnL7ZF_yT2Q4vE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256636785755-tskj8c31lic57a6j1q3kgju88m7i2tmk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

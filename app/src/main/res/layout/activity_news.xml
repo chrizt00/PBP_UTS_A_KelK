@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+        <data>
+                <variable
+                    name="news"
+                    type="com.hendrianto.uts_petshop.entity.News" />
+        </data>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context=".NewsActivity">
+
+        <ImageView
+            android:layout_width="370dp"
+            android:layout_height="200dp"
+            android:id="@+id/img1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/source"
+            android:text="@{news.source}"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:textColor="@color/link"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textAlignment="center"
+            android:text="@{news.title}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:id="@+id/paragraph1"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="@{news.paragraph1}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:id="@+id/paragraph2"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="@{news.paragraph2}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:id="@+id/paragraph3"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="@{news.paragraph3}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:id="@+id/paragraph4"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="@{news.paragraph4}"/>
+</LinearLayout>
+</ScrollView>
+</layout>

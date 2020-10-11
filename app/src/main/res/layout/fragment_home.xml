@@ -32,7 +32,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/name"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/colorYellow"
                         android:layout_gravity="center"
                         android:textStyle="bold"
                         android:textSize="22sp"
