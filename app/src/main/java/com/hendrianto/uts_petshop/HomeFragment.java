@@ -1,12 +1,15 @@
 package com.hendrianto.uts_petshop;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +62,61 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View v =  inflater.inflate(R.layout.fragment_home, container, false);
+        CardView to = v.findViewById(R.id.tobuy);
+        CardView to2 = v.findViewById(R.id.tobuy2);
+        CardView to3 = v.findViewById(R.id.tobuy3);
+        CardView to4 = v.findViewById(R.id.tobuy4);
+        CardView to5 = v.findViewById(R.id.tobuy5);
+        CardView to6 = v.findViewById(R.id.tobuy6);
+        to.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity().getApplication(),MainActivity.class);
+                i.putExtra("keys","Mammals");
+                startActivity(i);
+            }
+        });
+        to2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity().getApplication(),MainActivity.class);
+                i.putExtra("keys","Fish");
+                startActivity(i);
+            }
+        });
+        to3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity().getApplication(),MainActivity.class);
+                i.putExtra("keys","Reptile");
+                startActivity(i);
+            }
+        });
+        to4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity().getApplication(),MainActivity.class);
+                i.putExtra("keys","Bird");
+                startActivity(i);
+            }
+        });
+        to5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity().getApplication(),MainActivity.class);
+                i.putExtra("keys","Accesories");
+                startActivity(i);
+            }
+        });
+        to6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity().getApplication(),MainActivity.class);
+                i.putExtra("keys","Food");
+                startActivity(i);
+            }
+        });
+        return v;
     }
 }

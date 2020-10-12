@@ -1,4 +1,4 @@
-package com.hendrianto.uts_petshop;
+package com.hendrianto.uts_petshop.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,9 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,10 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.card.MaterialCardView;
+import com.hendrianto.uts_petshop.NewsActivity;
+import com.hendrianto.uts_petshop.R;
 import com.hendrianto.uts_petshop.entity.News;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerViewAdapter.NewsViewHolder> {
 
@@ -57,7 +56,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
             public void onClick(View view) {
 //                Toast.makeText(activity, "Klik"+position, Toast.LENGTH_SHORT).show();
                 int value = position;
-                Intent i = new Intent(context,NewsActivity.class);
+                Intent i = new Intent(context, NewsActivity.class);
                 i.putExtra("key",value);
                 context.startActivity(i);
             }

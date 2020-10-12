@@ -59,6 +59,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:layout_marginRight="5dp"
+                            android:id="@+id/tobuy"
                             android:layout_gravity="center">
 
                             <RelativeLayout
@@ -88,6 +89,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:id="@+id/tobuy2"
                             android:layout_marginLeft="5dp"
                             android:layout_gravity="center">
 
@@ -123,6 +125,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
+                            android:id="@+id/tobuy3"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:layout_marginRight="5dp"
@@ -154,6 +157,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:id="@+id/tobuy4"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_gravity="center">
@@ -194,6 +198,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:layout_marginRight="5dp"
+                            android:id="@+id/tobuy5"
                             android:layout_gravity="center">
 
                             <RelativeLayout
@@ -223,6 +228,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
+                            android:id="@+id/tobuy6"
                             android:layout_gravity="center">
 
                             <RelativeLayout

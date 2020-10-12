@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hendrianto.uts_petshop.adapter.NewsRecyclerViewAdapter;
 import com.hendrianto.uts_petshop.entity.News;
 
 import java.util.ArrayList;
