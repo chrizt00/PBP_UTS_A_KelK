@@ -13,7 +13,7 @@ public interface UsersApiInterface {
     Call<UserResponse> getAllUser(@Query("data")String data);
 
     @GET("loginpbp/{id}")
-    Call<UserResponse> getUserById(@Path("id") String id,
+    Call<UserResponse> getUserById(@Path("id") int id,
                                    @Query("data")String data);
 
     @POST("loginpbp")

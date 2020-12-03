@@ -20,6 +20,7 @@ import com.hendrianto.uts_petshop.api.UserResponse;
 import com.hendrianto.uts_petshop.api.UsersApiClient;
 import com.hendrianto.uts_petshop.api.UsersApiInterface;
 import com.hendrianto.uts_petshop.entity.Users;
+import com.hendrianto.uts_petshop.mail.JavaMailAPI;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,7 +58,8 @@ public class RegisterActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
         nama = findViewById(R.id.nama);
@@ -80,8 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
                     email.setError("Isikan Dengan Benar");
                     email.requestFocus();
                 }
-                else if(password.getText().toString().isEmpty()){
-                    password.setError("Isikan Dengan Benar");
+                else if(password.getText().toString().isEmpty() || password.getText().toString().length()<6){
+                    password.setError("Password minimal 6 karakter");
                     password.requestFocus();
                 }else{
                     for(int i =0;i<users.size();i++){
@@ -95,17 +97,28 @@ public class RegisterActivity extends AppCompatActivity {
                         }else {
                             progressDialog.show();
                             String encryptedPass = encrypt(password.getText().toString());
-                          tambahData(email.getText().toString(),
+                            String randomString = randomString();
+                            tambahData(email.getText().toString(),
                             encryptedPass,
                             nama.getText().toString(),
                             telp.getText().toString(),
-                            randomString(),0);
+                            randomString,0);
+                            sendMail(email.getText().toString(),randomString);
 //                            saveUser();
                         }
                 }
             }
         });
     }
+
+    public void sendMail(String email, String randomString){
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this,email
+                ,"Email Verification","Please Verif your account here " +
+                "https://pbp.inipunyaku.my.id/verify.php?vkey="+randomString);
+//        Toast.makeText(this,email,Toast.LENGTH_SHORT).show();
+        javaMailAPI.execute();
+    }
+
     static boolean isValidEmail(String email) {
         String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(regex);
@@ -118,6 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 users = response.body().getUsers();
+//                Toast.makeText(RegisterActivity.this, users.size(),Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -141,7 +155,7 @@ public class RegisterActivity extends AppCompatActivity {
                 progressDialog.dismiss();
                 try {
                     JSONObject obj = new JSONObject(response);
-                    Toast.makeText(RegisterActivity.this, "Verified Your Mail", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Register Success, Verified Your Mail", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(intent);
                 } catch (JSONException e) {

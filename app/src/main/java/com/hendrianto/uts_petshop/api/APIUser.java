@@ -9,4 +9,5 @@ public class APIUser {
     public static final String URL_UPDATE    = ROOT_API+"loginpbp/"; //PUT
     public static final String URL_DELETE    = ROOT_API+"loginpbp/"; //DELETE
     public static final String URL_SELECT    = ROOT_API+"loginpbp"; //GET
+    public static final String URL_SELECTBYID   = ROOT_API+"loginpbp/"; //GET
 }

@@ -22,6 +22,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
+import com.hendrianto.uts_petshop.api.UserResponse;
+import com.hendrianto.uts_petshop.api.UsersApiClient;
+import com.hendrianto.uts_petshop.api.UsersApiInterface;
+import com.hendrianto.uts_petshop.entity.Users;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
     BottomNavigationView nav;
@@ -29,6 +39,9 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     NewsFragment newsFragment = new NewsFragment();
     HomeFragment homeFragment = new HomeFragment();
     MenuItem potrait,landscape;
+
+    public int getId;
+    public String getNama, getTelp, getEmail;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,7 +84,11 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         nav.setSelectedItemId(R.id.homemenu);
         getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment,homeFragment).commit();
         nav.setOnNavigationItemSelectedListener(this);
-
+        Bundle extras = getIntent().getExtras();
+        getId = extras.getInt("id");
+        getNama = extras.getString("nama");
+        getTelp = extras.getString("telp");
+        getEmail = extras.getString("email");
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
             String CHANNEL_ID = "Channel 1";
             CharSequence name = "Channel 1";
@@ -112,6 +129,12 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment,homeFragment).commit();
                 return true;
             case R.id.memenu :
+                Bundle data = new Bundle();
+                data.putInt("id",getId);
+                data.putString("nama",getNama);
+                data.putString("telp",getTelp);
+                data.putString("email",getEmail);
+                meFragment.setArguments(data);
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment,meFragment).commit();
                 return true;
             case R.id.newspapermenu :

@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int cekValidateLogin = 0;
+                int getIndex = 0;
                 if(email.getText().toString().equalsIgnoreCase("admin") && password.getText().toString().equalsIgnoreCase("admin")) {
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
@@ -59,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                             String newPass = decrypt(users.get(i).getPassword());
                             if(password.getText().toString().equalsIgnoreCase(newPass)){
                                 cekValidateLogin = 1;
+                                getIndex = i;
                             }else{
                                 cekValidateLogin = 2;
                             }
@@ -69,9 +71,17 @@ public class LoginActivity extends AppCompatActivity {
                     }else if(cekValidateLogin==2){
                         Toast.makeText(LoginActivity.this,"Password Salah",Toast.LENGTH_SHORT).show();
                     }else if(cekValidateLogin==1){
-                        Toast.makeText(LoginActivity.this,"Login Berhasil",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        startActivity(intent);
+                        if(users.get(getIndex).getIsVerified()==0){
+                            Toast.makeText(LoginActivity.this,"Anda belum Verifikasi Email",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(LoginActivity.this,"Login Berhasil",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            intent.putExtra("id",users.get(getIndex).getId());
+                            intent.putExtra("nama",users.get(getIndex).getNama());
+                            intent.putExtra("telp",users.get(getIndex).getTelp());
+                            intent.putExtra("email",users.get(getIndex).getEmail());
+                            startActivity(intent);
+                        }
                     }
                 }
             }
