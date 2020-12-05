@@ -51,9 +51,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int cekValidateLogin = 0;
                 int getIndex = 0;
-                if(email.getText().toString().equalsIgnoreCase("admin") && password.getText().toString().equalsIgnoreCase("admin")) {
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(intent);
+                if(!isValidEmail(email.getText().toString()) && !email.getText().toString().equalsIgnoreCase("admin")){
+                    email.setError("Format Email Salah");
+                }else if(password.getText().toString().length()<6 && !password.getText().toString().equalsIgnoreCase("admin")){
+                    password.setError("Password minimal 6 karkater");
                 }else{
                     for(int i =0;i<users.size();i++){
                         if(email.getText().toString().equalsIgnoreCase(users.get(i).getEmail())){
@@ -75,12 +76,17 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this,"Anda belum Verifikasi Email",Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(LoginActivity.this,"Login Berhasil",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                            intent.putExtra("id",users.get(getIndex).getId());
-                            intent.putExtra("nama",users.get(getIndex).getNama());
-                            intent.putExtra("telp",users.get(getIndex).getTelp());
-                            intent.putExtra("email",users.get(getIndex).getEmail());
-                            startActivity(intent);
+                            if(email.getText().toString().equalsIgnoreCase("admin")){
+                                Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                                startActivity(intent);
+                            }else {
+                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                intent.putExtra("id", users.get(getIndex).getId());
+                                intent.putExtra("nama", users.get(getIndex).getNama());
+                                intent.putExtra("telp", users.get(getIndex).getTelp());
+                                intent.putExtra("email", users.get(getIndex).getEmail());
+                                startActivity(intent);
+                            }
                         }
                     }
                 }
@@ -227,5 +233,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
         return Newstr;
+    }
+    static boolean isValidEmail(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
     }
 }
