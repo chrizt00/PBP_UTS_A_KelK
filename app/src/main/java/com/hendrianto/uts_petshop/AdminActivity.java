@@ -12,7 +12,7 @@ import android.view.View;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class AdminActivity extends AppCompatActivity {
-    private CardView shop,transaction,transactionData,ongoing;
+    private CardView shop,transaction,transactionData,userData;
     ExtendedFloatingActionButton logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,15 @@ public class AdminActivity extends AppCompatActivity {
         shop = findViewById(R.id.btnShop);
         transaction = findViewById(R.id.btnTransaction);
         transactionData = findViewById(R.id.btnTransactionData);
+        userData = findViewById(R.id.btnUser);
         logout = findViewById(R.id.logout);
+        userData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, UserDataActivity.class);
+                startActivity(intent);
+            }
+        });
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

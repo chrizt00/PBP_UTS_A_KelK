@@ -38,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnToRegister);
         email = findViewById(R.id.emailLogin);
         password = findViewById(R.id.passwordLogin);
+//        email.setText("hendrianto8901234@gmail.com");
+//        password.setText("abcdefg");
         loadUser();
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -72,6 +72,10 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.about :
                 Intent i = new Intent(this,AboutActivity.class);
                 startActivity(i);
+            case R.id.cart :
+                Intent in = new Intent(this,CartActivity.class);
+                in.putExtra("key",getEmail);
+                startActivity(in);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -82,13 +86,13 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_home);
         nav = findViewById(R.id.bottom_navigation);
         nav.setSelectedItemId(R.id.homemenu);
+        Bundle extras = getIntent().getExtras();
+        getEmail = extras.getString("email");
+        Bundle data2 = new Bundle();
+        data2.putString("email",getEmail);
+        homeFragment.setArguments(data2);
         getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.fragment,homeFragment).commit();
         nav.setOnNavigationItemSelectedListener(this);
-        Bundle extras = getIntent().getExtras();
-        getId = extras.getInt("id");
-        getNama = extras.getString("nama");
-        getTelp = extras.getString("telp");
-        getEmail = extras.getString("email");
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
             String CHANNEL_ID = "Channel 1";
             CharSequence name = "Channel 1";
@@ -114,14 +118,6 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
     }
 
-    /**
-     * Called when an item in the bottom navigation menu is selected.
-     *
-     * @param item The selected item
-     * @return true to display the item as the selected item and false if the item should not be
-     * selected. Consider setting non-selectable items as disabled preemptively to make them
-     * appear non-interactive.
-     */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch ((item.getItemId())){
