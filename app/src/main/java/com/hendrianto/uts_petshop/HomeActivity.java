@@ -87,6 +87,9 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         nav = findViewById(R.id.bottom_navigation);
         nav.setSelectedItemId(R.id.homemenu);
         Bundle extras = getIntent().getExtras();
+        getId = extras.getInt("id");
+        getNama = extras.getString("nama");
+        getTelp = extras.getString("telp");
         getEmail = extras.getString("email");
         Bundle data2 = new Bundle();
         data2.putString("email",getEmail);
