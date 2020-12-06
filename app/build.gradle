@@ -55,7 +55,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
     implementation 'com.android.volley:volley:1.1.0'
-
+    implementation 'com.itextpdf:itextg:5.5.10'
+    implementation 'com.mindorks.android:prdownloader:0.6.0'
+    implementation 'com.github.Bleoo:WindowImageView:1.0.2'
+    implementation 'com.facebook.fresco:fresco:1.5.0'
     implementation 'com.github.anzaizai:EasySwipeMenuLayout:1.1.4'
 
     implementation files('libs/activation.jar')

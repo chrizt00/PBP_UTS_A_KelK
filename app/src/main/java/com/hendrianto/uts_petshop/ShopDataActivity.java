@@ -81,6 +81,9 @@ public class ShopDataActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ShopDataActivity.this, AdminActivity.class);
                 startActivity(intent);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                ShopDataActivity.this.finish();
             }
         });
     }
@@ -110,7 +113,6 @@ public class ShopDataActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray("data");
-//                    System.out.println("CUKIMAKKKKKK"+jsonArray.length());
                     if(!listData.isEmpty())
                         listData.clear();
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -131,7 +133,6 @@ public class ShopDataActivity extends AppCompatActivity {
                 }
                 Toast.makeText(ShopDataActivity.this, response.optString("message"),
                         Toast.LENGTH_SHORT).show();
-//                Toast.makeText(ShopDataActivity.this, listData.size(), Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override

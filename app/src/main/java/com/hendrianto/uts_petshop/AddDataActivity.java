@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -73,6 +75,14 @@ public class AddDataActivity extends AppCompatActivity {
         jenis = findViewById(R.id.txtJenis);
         jenis.setText(selectedJenis);
         jenis.setAdapter(adapter);
+
+        jenis.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                in.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        });
         cancel = findViewById(R.id.btnBatal);
         add = findViewById(R.id.btnSimpan);
 
@@ -96,7 +106,9 @@ public class AddDataActivity extends AppCompatActivity {
                         tambahData(nama.getText().toString(), jenis.getText().toString(), harga.getText().toString(), url.getText().toString());
                     }
                     Intent intent = new Intent(AddDataActivity.this, ShopDataActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
+                    AddDataActivity.this.finish();
                 }
             }
         });
@@ -104,7 +116,9 @@ public class AddDataActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AddDataActivity.this, ShopDataActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                AddDataActivity.this.finish();
             }
         });
 
